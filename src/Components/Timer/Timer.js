@@ -1,46 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 //*************** */ style import***********
 import './style/Timer.css'
-import { Container, Row, Col, Button } from 'react-bootstrap'
-
-const handlingStart = (props) => {
-
-}
+import { Container, Row, Col } from 'react-bootstrap'
 
 
-const Timer = (props) => {
-    return (
-        <Container>
-            <Row className="timer-div">
-                <Col>
-                    {props.hh}
-                </Col>
-                <Col className="sep">:</Col>
-                <Col>
-                    {props.mm}
-                </Col>
-                <Col className="sep">:</Col>
-                <Col>
-                    {props.ss}
-                </Col>
-                <Row className="label">
-                    <Col className="hh">Hour</Col>
+
+export default class Timer extends Component {
+
+    state = {
+        startCliked: false,
+        resetCliked: false
+    }
+
+    render() {
+
+        return (
+            <Container>
+                <Row className="timer-div">
+                    <Col>
+                        {this.props.time.hours}
+                    </Col>
                     <Col className="sep">:</Col>
-                    <Col className="mm">Minute</Col>
+                    <Col>
+                        {this.props.time.minutes}
+                    </Col>
                     <Col className="sep">:</Col>
-                    <Col className="ss">Second</Col>
+                    <Col>
+                        {this.props.time.seconds}
+                    </Col>
+                    <Row className="label">
+                        <Col className="hh">Hour</Col>
+                        <Col className="sep">:</Col>
+                        <Col className="mm">Minute</Col>
+                        <Col className="sep">:</Col>
+                        <Col className="ss">Second</Col>
+                    </Row>
                 </Row>
-            </Row>
-            <Row className="timer-div">
-                <Col className=" button-div">
-                    <Button variant="outline-primary"> Start</Button>
-                </Col>
-                <Col className="button-div">
-                    <Button variant="outline-warning"> Reset</Button>
-                </Col>
-            </Row>
-        </Container>
-    )
+            </Container>
+
+
+        )
+
+    }
+
 
 }
-export default Timer;
+
