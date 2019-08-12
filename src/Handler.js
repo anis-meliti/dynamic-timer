@@ -47,6 +47,7 @@ class Handler extends Component {
     stopHandler = () => {
         clearInterval(this.state.intervall);
         this.setState({ ms: 0 })
+        this.timeConversion(this.state.ms)
 
     }
 
